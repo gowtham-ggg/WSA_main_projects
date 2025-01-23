@@ -1,17 +1,36 @@
-import arrow_icon from './arrow_icon.svg'
-import lock_icon from './lock_icon.svg'
-import logo from './logo.svg'
-import mail_icon from './mail_icon.svg'
-import person_icon from './person_icon.svg'
-import hand_wave from './hand_wave.png'
-import header_img from './header_img.png'
+import alarmClock from "../assets/alarm-clock.svg";
+import blueChecked from "../assets/blue-checked.svg";
+import calendar from "../assets/calendar.svg";
+import crossIcon from "../assets/cross-icon.svg";
+import deleteIcon from "../assets/delete.svg";
+import editTaskLogo from "../assets/edit-task-logo.svg";
+import editIcon from "../assets/edit.svg";
+import folderWhite from "../assets/folder-white.svg";
+import folder from "../assets/folder.svg";
+import info from "../assets/info.svg";
+import memo from "../assets/memo.svg";
+import noResultBanner from "../assets/no-result-banner.svg";
+import titleImg from "../assets/title-placeholder-img.svg";
+import userIcon from "../assets/user-icon.png";
+import wsaLogo from "../assets/wsa-logo.svg";
 
-export const assets = {
-    arrow_icon,
-    lock_icon,
-    logo,
-    mail_icon,
-    person_icon,
-    hand_wave,
-    header_img
-}
+
+const assets = {
+  alarmClock,
+  blueChecked,
+  calendar,
+  crossIcon,
+  deleteIcon,
+  editTaskLogo,
+  editIcon,
+  folderWhite,
+  folder,
+  info,
+  memo,
+  noResultBanner,
+  titleImg,
+  userIcon,
+  wsaLogo,
+};
+
+export default assets;
