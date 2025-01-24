@@ -2,6 +2,9 @@ import React from "react";
 import CreateTask from "./CreateTask";
 import Loading from "./ui/Loading";
 import EditTask from "./EditTask";
+import TaskList from "./TaskList";
+import ViewTask from "./ViewTask";
+import Header from './Header'
 
 const TaskMain = () => {
   const staticTask = [
@@ -23,10 +26,13 @@ const TaskMain = () => {
   ];
   return (
     <>
+    <Header />
     <Loading />
     <div id="container-div">
       <CreateTask />
       <EditTask task={staticTask} />
+      <TaskList tasks={staticTask} />
+      <ViewTask task={staticTask} />
     </div>
     </>
   );
