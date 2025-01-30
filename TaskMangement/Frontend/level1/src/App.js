@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <ToastContainer />
       <TaskMain />
-      <NoTask />
+      
       <Copyright />
     </div>
   );

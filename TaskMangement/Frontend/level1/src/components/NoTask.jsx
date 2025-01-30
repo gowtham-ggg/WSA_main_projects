@@ -1,7 +1,7 @@
 import React from 'react'
 import assets from '../assets/assets'
 
-const NoTask = () => {
+const NoTask = ({showCreateTaskScreen}) => {
    
   return (
     <div className='flex flex-col items-center justify-center content-section'>
@@ -11,7 +11,7 @@ const NoTask = () => {
         <p className='no-task-secondary-text'>
             There are no tasks added yet. Click button below to add a new task.
         </p>
-        <button className='btn btn-purple create-task-btn'><img src={assets.folderWhite} alt="folder" />Create Task</button>
+        <button onClick={showCreateTaskScreen} className='btn btn-purple create-task-btn'><img src={assets.folderWhite} alt="folder" />Create Task</button>
         </div>
       
       

@@ -5,11 +5,13 @@ import { toast } from 'react-toastify';
 import createTaskApi from './api/createTask';
 import clsx from 'clsx';
 
-const CreateTask = () => {
+
+const CreateTask = ({fetchAllTasks}) => {
   const [taskTitle, setTaskTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskDueDate, setTaskDueDate] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
+
 
   // Handle input changes
   const handleTitleChange = useCallback((e) => {
@@ -28,9 +30,7 @@ const CreateTask = () => {
   const handleResponse = useCallback((responseData) => {
     if (responseData) {
       toast.success('Task Created');
-      setTaskTitle('');
-      setTaskDescription('');
-      setTaskDueDate('');
+      fetchAllTasks()
     } else {
       toast.error('Failed to create task');
     }
@@ -119,9 +119,7 @@ const CreateTask = () => {
           <button
             className="btn cancel-task-btn cursor-pointer"
             onClick={() => {
-              setTaskTitle('');
-              setTaskDescription('');
-              setTaskDueDate('');
+              
             }}
           >
             Cancel

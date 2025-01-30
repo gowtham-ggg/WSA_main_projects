@@ -14,8 +14,8 @@ const TaskList = ({ tasks }) => {
           </button>
         </div>
         <div className="task-list-container">
-          {tasks.map((task, index) => (
-            <TaskCard key={`${index}-task-card`} task={task} onClick={{}} />
+          {tasks.map((task) => (
+            <TaskCard key={`${task._id}-task-card`} task={task} onClick={{}} />
           ))}
         </div>
       </div>
