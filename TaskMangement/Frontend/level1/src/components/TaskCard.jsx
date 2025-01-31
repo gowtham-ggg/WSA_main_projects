@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const TaskCard = ({task, onClick}) => {
   return (
-    <div className='task-tile-container cursor-pointer'>
+    <div onClick={onClick} className='task-tile-container cursor-pointer'>
       <span className='task-icon-wrapper'>
         <img src={assets.blueChecked} alt="checked" className='task-icon' />
       </span>

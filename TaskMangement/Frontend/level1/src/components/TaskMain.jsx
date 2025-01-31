@@ -13,7 +13,7 @@ const TaskMain = () => {
   const [tasks, setTasks] = useState([])
   const [loading, setLoading] = useState(false)
 
-    //for spa iniatilize
+    //for   iniatilize
     const [activeTask, setActiveTask] = useState(null)
     const [currComponent, setCurrComponent] = useState("loading")
   
@@ -73,10 +73,10 @@ const TaskMain = () => {
 
     {currComponent === "loading" && <Loading />}
     {currComponent === "noTask" && <NoTask showCreateTaskScreen = {showCreateTaskScreen}/>}
-    {currComponent === "createTask" && <CreateTask fetchAllTasks ={fetchAllTasks} />}
-    {currComponent === "taskList" && <TaskList tasks={tasks}/>}
+    {currComponent === "createTask" && <CreateTask fetchAllTasks ={fetchAllTasks} showTaskListScreen={showTaskListScreen}/>}
+    {currComponent === "taskList" && <TaskList showTaskViewScreen ={showTaskViewScreen} setActiveTask={setActiveTask} tasks={tasks} showCreateTaskScreen={showCreateTaskScreen}/>}
     {currComponent === "taskEdit" && <EditTask tasks={tasks} />}
-    {currComponent === "taskView" && <ViewTask tasks={tasks}/> }
+    {currComponent === "taskView" && <ViewTask task={activeTask} showTaskListScreen={showTaskListScreen}/> }
     
     </>
   );

@@ -6,7 +6,7 @@ import createTaskApi from './api/createTask';
 import clsx from 'clsx';
 
 
-const CreateTask = ({fetchAllTasks}) => {
+const CreateTask = ({fetchAllTasks,showTaskListScreen}) => {
   const [taskTitle, setTaskTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskDueDate, setTaskDueDate] = useState('');
@@ -118,9 +118,7 @@ const CreateTask = ({fetchAllTasks}) => {
           </button>
           <button
             className="btn cancel-task-btn cursor-pointer"
-            onClick={() => {
-              
-            }}
+            onClick={() => showTaskListScreen()}
           >
             Cancel
           </button>
