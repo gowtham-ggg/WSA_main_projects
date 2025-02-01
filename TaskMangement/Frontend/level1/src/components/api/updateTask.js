@@ -1,30 +1,29 @@
 import axios from "axios";
 
-async function fetchTaskApi(setLoading, handleError, handleResponse, taskId) {
-    setLoading(true); // Start loading state
+async function updateTaskApi(setLoading, handleError, handleResponse, taskId, updatedTaskData) {
+    setLoading(true);
 
     try {
         const baseUrl = process.env.REACT_APP_API_URL;
-        const endpoint = `/task/${taskId}`; 
-        const url = `${baseUrl}${endpoint}`;
+        const url = `${baseUrl}/task/${taskId}`;
 
-
-        const response = await axios.put(url, {
+        const response = await axios.put(url, updatedTaskData, {
             headers: {
                 "Content-Type": "application/json",
             },
         });
 
-        
-        handleResponse(response.data);
+        if (response?.data) {
+            handleResponse(response.data);
+        } else {
+            throw new Error("Invalid response from server");
+        }
     } catch (error) {
-      
-        const errorMessage =
-            error.response?.data?.message || "An unknown error occurred";
+        const errorMessage = error.response?.data?.message || error.message || "An unknown error occurred";
         handleError(new Error(errorMessage));
     } finally {
-        setLoading(false); 
+        setLoading(false);
     }
 }
 
-export default fetchTaskApi;
+export default updateTaskApi;
