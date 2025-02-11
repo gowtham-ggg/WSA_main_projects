@@ -89,7 +89,7 @@ const TaskMain = () => {
         />
       )}
       {currComponent === "taskEdit" && <EditTask task={activeTask} handleEditTask={handleEditTask} showTaskListScreen={showTaskListScreen} />}
-      {currComponent === "taskView" && <ViewTask task={activeTask} showTaskListScreen={showTaskListScreen} />}
+      {currComponent === "taskView" && <ViewTask task={activeTask} showTaskListScreen={showTaskListScreen} showTaskEditScreen={showTaskEditScreen} handleDeleteTask={handleDeleteTask} />}
     </>
   );
 };

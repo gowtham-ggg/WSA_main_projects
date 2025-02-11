@@ -20,8 +20,8 @@ const TaskList = ({ tasks, setActiveTask, showTaskViewScreen, showCreateTaskScre
         </div>
         <div className="task-list-container">
           {tasks.map((task) => (
-            <TaskCard key={task._id} task={task} showTaskEditScreen={showTaskEditScreen} handleDeleteTask={handleDeleteTask} />
-
+            <TaskCard key={task._id} task={task} showTaskEditScreen={showTaskEditScreen} handleDeleteTask={handleDeleteTask} onClick={()=>ViewTask(task)}/>
+            
           ))}
         </div>
       </div>
