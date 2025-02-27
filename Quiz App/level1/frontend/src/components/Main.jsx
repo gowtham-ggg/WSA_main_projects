@@ -1,13 +1,24 @@
-import React from 'react'
-import QuizLogo from './ui/QuizLogo'
-import WelcomeScreen from './WelcomeScreen'
+import React, { useState } from "react";
+import WelcomeScreen from "./WelcomeScreen";
+import QuestionScreen from "./QuestionScreen";
+import ResultScreen from "./ResultScreen";
+import QuestionProvider from "../store/QuestionProvider";
 
 const Main = () => {
+  const [viewScreen, setViewScreen] = useState("welcome");
+
+  const showQuestionScreen = () => setViewScreen("question");
+  const showResultScreen = () => setViewScreen("result");
+
   return (
-    <div>
-     <WelcomeScreen />
-    </div>
-  )
-}
+    <QuestionProvider>
+      <div>
+        {viewScreen === "welcome" && <WelcomeScreen showQuestionScreen={showQuestionScreen} />}
+        {viewScreen === "question" && <QuestionScreen showResultScreen={showResultScreen} />}
+        {viewScreen === "result" && <ResultScreen showQuestionScreen={showQuestionScreen} />} {/* ✅ Fix: Pass prop */}
+      </div>
+    </QuestionProvider>
+  );
+};
 
 export default Main
