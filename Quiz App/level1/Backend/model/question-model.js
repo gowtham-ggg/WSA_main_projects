@@ -6,4 +6,5 @@ const QuestionSchema = new mongoose.Schema({
     answer: { id: Number, value: String } 
 });
 
-module.exports = mongoose.models.QuestionData || mongoose.model("QuestionData", QuestionSchema);
+module.exports = mongoose.models.Question || mongoose.model("Question", QuestionSchema);
+
