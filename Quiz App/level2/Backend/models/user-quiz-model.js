@@ -53,6 +53,12 @@ userQuizSchema.methods.updateResult = async function () {
   await this.save(); 
 };
 
-const UserQuiz = mongoose.model("UserQuiz", userQuizSchema);
+const UserQuiz = mongoose.models.UserQuiz || mongoose.model("UserQuiz", userQuizSchema, "user_Quizzes");
 
-module.exports = UserQuiz;
+module.exports = {UserQuiz,
+  QUIZ_STATUS_COMPLETED,
+  QUIZ_STATUS_PENDING,
+  ANSWER_STATUS_RIGHT,
+  ANSWER_STATUS_WRONG,
+  ANSWER_STATUS_PENDING
+}
