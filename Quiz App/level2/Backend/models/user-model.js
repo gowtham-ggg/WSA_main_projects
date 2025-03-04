@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     },
     email : {type : String, required : true,unique : true, trim :true},
     password : {type : String , require : true},
+    quiz_attempts :{type : Number,default:0},
     created_at :{type : Date, default : Date.now},
     updated_at : {
         type : Date, default : Date.now
