@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
+// Quiz and Answer Status Constants
 const QUIZ_STATUS_PENDING = "pending";
 const QUIZ_STATUS_COMPLETED = "completed";
-
 const ANSWER_STATUS_PENDING = "pending";
 const ANSWER_STATUS_RIGHT = "right";
 const ANSWER_STATUS_WRONG = "wrong";
@@ -17,12 +17,13 @@ const userQuizSchema = new mongoose.Schema({
     {
       _id: false,
       question_id: { type: mongoose.Schema.Types.ObjectId, ref: "Question" },
-      attempted: Boolean,
+      attempted: { type: Boolean, default: false },
       answer_status: {
         type: String,
         enum: [ANSWER_STATUS_PENDING, ANSWER_STATUS_RIGHT, ANSWER_STATUS_WRONG],
+        default: ANSWER_STATUS_PENDING,
       },
-      Submitted_answer: {
+      submitted_answer: {
         _id: false,
         id: Number,
         value: String,
@@ -37,7 +38,7 @@ const userQuizSchema = new mongoose.Schema({
 
 // Method to update quiz result
 userQuizSchema.methods.updateResult = async function () {
-  let result = this.questions.reduce(
+  this.result = this.questions.reduce(
     (acc, cur) => {
       if (cur.answer_status === ANSWER_STATUS_RIGHT) {
         acc.correct_count += 1;
@@ -49,16 +50,16 @@ userQuizSchema.methods.updateResult = async function () {
     { correct_count: 0, incorrect_count: 0 }
   );
 
-  this.result = result;
-  await this.save(); 
+  await this.save();
 };
 
 const UserQuiz = mongoose.models.UserQuiz || mongoose.model("UserQuiz", userQuizSchema, "user_Quizzes");
 
-module.exports = {UserQuiz,
+module.exports = {
+  UserQuiz,
   QUIZ_STATUS_COMPLETED,
   QUIZ_STATUS_PENDING,
   ANSWER_STATUS_RIGHT,
   ANSWER_STATUS_WRONG,
-  ANSWER_STATUS_PENDING
-}
+  ANSWER_STATUS_PENDING,
+};

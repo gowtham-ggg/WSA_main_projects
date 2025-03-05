@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user-model");
 const authUser = require("../middleware/user-middleware")
 
+
 // Register Route
 router.post("/register", async (req, res) => {
     try {
